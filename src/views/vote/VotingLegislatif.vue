@@ -78,7 +78,7 @@ export default {
           };
           axios
             .put(
-              "http://localhost:3000/api/v1/participant/vote",
+              "http://52.163.218.138/api/v1/participant/vote",
               data
             )
             .then(() => {
@@ -105,14 +105,14 @@ export default {
   mounted() {
     axios
       .get(
-        "http://localhost:3000/api/v1/participant/" +
+        "http://52.163.218.138/api/v1/participant/" +
           this.$route.params.id
       )
       .then((res) => (this.participant = res.data.data))
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:3000/api/v1/candidate/all")
+      .get("http://52.163.218.138/api/v1/candidate/all")
       .then((res) => (this.candidates = res.data.data))
       .catch((error) => console.log(error));
   },
