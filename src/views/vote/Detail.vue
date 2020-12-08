@@ -16,7 +16,7 @@
                             <b-col lg="9" class="text-left pt-4 pl-5">
                                 <h3>{{ detail.name }}</h3>
                                 <b>Nomor urut  {{ detail.number }} </b><br/>
-                                <a class="mt-3" style="display:block;" target="_blank" v-bind:href="'http://pemira.fmipauns.com/'+this.$route.params.id+'.pdf'">
+                                <a class="mt-3" style="display:block;" target="_blank" v-bind:href="'http://localhost/'+this.$route.params.id+'.pdf'">
                                     <b-button href="" variant="success">
                                         <i class="far fa-file-alt text-white"></i>
                                         CV
@@ -75,7 +75,7 @@ export default {
     },
     created() {
         axios
-            .get("http://pemira.fmipauns.com:3000/api/v1/candidate/"+this.$route.params.id)
+            .get("http://localhost:3000/api/v1/candidate/"+this.$route.params.id)
             .then(res => (this.detail = res.data.data))
             .catch(err => console.log(err));
     }, 

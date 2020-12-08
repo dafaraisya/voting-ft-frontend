@@ -29,7 +29,8 @@ import Scan from "../views/vote/Scan.vue";
 import Upload from "../views/vote/Upload.vue";
 import Welcome from "../views/vote/Welcome.vue";
 import Method from "../views/vote/Method.vue";
-import Voting from "../views/vote/Voting.vue";
+import VotingBEM from "../views/vote/VotingBEM.vue";
+import VotingLegislatif from "../views/vote/VotingLegislatif.vue";
 import DetailCandidateVoting from "../views/vote/Detail.vue";
 import Announcement from "../views/vote/Announcement.vue";
 import Error from "../views/vote/Error.vue";
@@ -230,9 +231,21 @@ const routes = [
         component: Upload,
       },
       {
-        path: "voting/:id",
-        name: "Voting",
-        component: Voting,
+        path: "voting/bem/:id",
+        name: "VotingBEM",
+        component: VotingBEM,
+        beforeEnter: (to, from, next) => {
+          if (store.state.authenticated == false) {
+            next({ name: "Welcome" });
+          } else {
+            next();
+          }
+        },
+      },
+      {
+        path: "voting/legislatif/:id",
+        name: "VotingLegislatif",
+        component: VotingLegislatif,
         beforeEnter: (to, from, next) => {
           if (store.state.authenticated == false) {
             next({ name: "Welcome" });

@@ -5,6 +5,13 @@
                 <b-container class="bg-white p-3 mt-3 shadow-sm rounded">
                     <h1 class="mt-2">Tambah Kandidat</h1>
                     <b-form class="text-left ml-5 mt-4 mr-5">
+                        <b-form-group label="Tipe Kandidat :" label-for="type">
+                            <b-form-select class="form-control" name="type" id="type" v-model="dataCandidate.type">
+                                <option value="">Pilih Tipe Kandidat</option>
+                                <option value="bem">Ketua BEM</option>
+                                <option value="legislatif">Ketua Legislatif</option>
+                            </b-form-select>
+                        </b-form-group>
                         <b-form-group label="Nama lengkap :" label-for="namaLengkap">
                             <b-form-input type="text" id="namaLengkap" aria-describedby="namaHelp" placeholder="Masukan Nama" v-model="dataCandidate.name"></b-form-input>
                         </b-form-group>
@@ -40,6 +47,7 @@ export default {
     data() {
         return {
             dataCandidate: {
+                type: '',
                 name: '',
                 number: '',
                 image: '',
@@ -50,6 +58,7 @@ export default {
     methods: {
         addData() {
         let data = {
+            'type': this.dataCandidate.type,
             'name': this.dataCandidate.name,
             'number': this.dataCandidate.number,
             'image': this.dataCandidate.image,
@@ -59,7 +68,7 @@ export default {
         };
 
         axios
-            .post("http://pemira.fmipauns.com:3000/api/v1/candidate", data)
+            .post("http://localhost:3000/api/v1/candidate", data)
             .then(() => {
                 Swal.fire({
                     icon: 'success',

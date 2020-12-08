@@ -50,7 +50,7 @@ export default {
   methods: {
     login() {
       axios
-        .post("http://pemira.fmipauns.com:3000/api/v1/login", this.authentication)
+        .post("http://localhost:3000/api/v1/login", this.authentication)
         .then((response) => {
           if (response.data.message == "success") {
             Swal.fire({

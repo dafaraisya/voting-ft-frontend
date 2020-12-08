@@ -142,7 +142,7 @@ export default {
     },
     del(id) {
       axios
-        .delete("http://pemira.fmipauns.com:3000/api/v1/participant/" + id)
+        .delete("http://localhost:3000/api/v1/participant/" + id)
         .then(() => location.reload())
         .catch((err) => console.log(err));
     },
@@ -150,7 +150,7 @@ export default {
       this.searchLoading = 1;
       axios
         .get(
-          "http://pemira.fmipauns.com:3000/api/v1/participant/search/" +
+          "http://localhost:3000/api/v1/participant/search/" +
             this.keyword
         )
         .then((res) => {
@@ -256,7 +256,7 @@ export default {
   mounted() {
     axios
       .get(
-        "http://pemira.fmipauns.com:3000/api/v1/participant/page/" +
+        "http://localhost:3000/api/v1/participant/page/" +
           this.$route.params.page
       )
       .then((res) => {

@@ -47,7 +47,7 @@ export default {
           that.id = res.data;
           axios
             .get(
-              "http://pemira.fmipauns.com:3000/api/v1/participant/" + that.id
+              "http://localhost:3000/api/v1/participant/" + that.id
             )
             .then((res) => {
               that.dataParticipant = res.data.data;
@@ -101,7 +101,7 @@ export default {
             }).then(() => {
               this.$store.commit("setAuthentication", true);
               this.$router.replace({
-                name: "Voting",
+                name: "VotingBEM",
                 params: { id: this.dataParticipant._id },
                 query: { success: true },
               });

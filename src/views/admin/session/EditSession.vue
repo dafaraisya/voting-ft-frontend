@@ -69,7 +69,7 @@ export default {
                 }).then((result) => {
                     if (result.isConfirmed) {            
                         axios
-                            .put("http://pemira.fmipauns.com:3000/api/v1/session/"+this.$route.params.id, data)
+                            .put("http://localhost:3000/api/v1/session/"+this.$route.params.id, data)
                             .then(() => {
                                 Swal.fire({
                                     icon: 'success',
@@ -87,7 +87,7 @@ export default {
     },
     created() {
         axios
-        .get('http://pemira.fmipauns.com:3000/api/v1/session/'+this.$route.params.id)
+        .get('http://localhost:3000/api/v1/session/'+this.$route.params.id)
         .then((res) => {
             const session = res.data.data;
             this.dataSession.number = session.number;

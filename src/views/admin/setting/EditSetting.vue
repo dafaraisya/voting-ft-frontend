@@ -84,7 +84,7 @@ export default {
                     }).then((result) => {
                         if (result.isConfirmed) {    
                             axios
-                            .put("http://pemira.fmipauns.com:3000/api/v1/setting/"+this.dataSetting.id, data)
+                            .put("http://localhost:3000/api/v1/setting/"+this.dataSetting.id, data)
                             .then(() => {
                                 Swal.fire({
                                     icon: 'success',
@@ -112,7 +112,7 @@ export default {
                 }).then((result) => {
                     if (result.isConfirmed) {            
                         axios
-                            .put("http://pemira.fmipauns.com:3000/api/v1/setting/upload-procedure", formData,
+                            .put("http://localhost:3000/api/v1/setting/upload-procedure", formData,
                             {
                                 headers: {
                                     'Content-Type': 'multipart/form-data'
@@ -135,7 +135,7 @@ export default {
     },
     created() {
     axios
-        .get('http://pemira.fmipauns.com:3000/api/v1/setting/all')
+        .get('http://localhost:3000/api/v1/setting/all')
         .then((res) => {
             const setting = res.data.data[0];
             this.dataSetting.id = setting._id;

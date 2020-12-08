@@ -140,7 +140,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://pemira.fmipauns.com:3000/api/v1/session/all")
+      .get("http://localhost:3000/api/v1/session/all")
       .then((res) => (this.sessions = res.data.data))
       .catch((error) => console.log(error));
   },

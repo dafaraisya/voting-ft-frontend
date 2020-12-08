@@ -56,7 +56,7 @@ export default {
     onDecode (decodedString) {
       this.id = decodedString;
       axios
-        .get("http://pemira.fmipauns.com:3000/api/v1/participant/"+this.id)
+        .get("http://localhost:3000/api/v1/participant/"+this.id)
         .then(res => {
           this.dataParticipant = res.data.data;
           this.check();
@@ -86,7 +86,7 @@ export default {
                 showConfirmButton: true
             }).then(()=>{
               this.$store.commit("setAuthentication", true);
-              this.$router.replace({ name: "Voting", params : {id:this.dataParticipant._id}, query: {'success': true} });
+              this.$router.replace({ name: "VotingBEM", params : {id:this.dataParticipant._id}, query: {'success': true} });
             })
           } else {
             this.$router.push({ name: "Error", params: {error : 'failed-not-your-session'}});
@@ -97,7 +97,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://pemira.fmipauns.com:3000/api/v1/participant/all")
+      .get("http://localhost:3000/api/v1/participant/all")
       .then(res => (this.dataParticipants = res.data.data))
       .catch(error => console.log(error))
   }
