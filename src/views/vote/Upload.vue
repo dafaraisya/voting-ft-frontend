@@ -47,7 +47,7 @@ export default {
           that.id = res.data;
           axios
             .get(
-              "http://52.163.218.138/api/v1/participant/" + that.id
+              "http://52.163.218.138:3000/api/v1/participant/" + that.id
             )
             .then((res) => {
               that.dataParticipant = res.data.data;

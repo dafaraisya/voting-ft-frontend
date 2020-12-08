@@ -60,7 +60,7 @@ export default {
         };
 
         axios
-            .post("http://52.163.218.138/api/v1/session", data)
+            .post("http://52.163.218.138:3000/api/v1/session", data)
             .then(() => { 
                 Swal.fire({
                     icon: 'success',

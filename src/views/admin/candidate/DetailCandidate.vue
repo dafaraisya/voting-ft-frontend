@@ -60,7 +60,7 @@ export default {
             }).then((result) => {
                 if (result.isConfirmed) {            
                     axios
-                        .delete("http://52.163.218.138/api/v1/candidate/"+this.$route.params.id)
+                        .delete("http://52.163.218.138:3000/api/v1/candidate/"+this.$route.params.id)
                         .then(() => {
                             Swal.fire({
                                 icon: 'success',
@@ -81,7 +81,7 @@ export default {
     },
     created() {
         axios
-            .get("http://52.163.218.138/api/v1/candidate/"+this.$route.params.id)
+            .get("http://52.163.218.138:3000/api/v1/candidate/"+this.$route.params.id)
             .then(res => (this.detail = res.data.data))
             .catch(err => console.log(err));
     }

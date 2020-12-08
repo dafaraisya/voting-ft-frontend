@@ -69,7 +69,7 @@ export default {
                 }).then((result) => {
                     if (result.isConfirmed) {            
                         axios
-                            .put("http://52.163.218.138/api/v1/participant/"+this.$route.params.id, data)
+                            .put("http://52.163.218.138:3000/api/v1/participant/"+this.$route.params.id, data)
                             .then(() => {
                                 Swal.fire({
                                     icon: 'success',
@@ -87,12 +87,12 @@ export default {
     },
     created() {
         axios
-        .get('http://52.163.218.138/api/v1/session/all')
+        .get('http://52.163.218.138:3000/api/v1/session/all')
         .then(res => (this.sessions = res.data.data))
         .catch(error => console.log(error))
 
         axios
-        .get('http://52.163.218.138/api/v1/participant/'+this.$route.params.id)
+        .get('http://52.163.218.138:3000/api/v1/participant/'+this.$route.params.id)
         .then(res => (this.dataParticipant = res.data.data))
         .catch(error => console.log(error))
     }

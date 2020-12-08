@@ -142,7 +142,7 @@ export default {
     },
     del(id) {
       axios
-        .delete("http://52.163.218.138/api/v1/participant/" + id)
+        .delete("http://52.163.218.138:3000/api/v1/participant/" + id)
         .then(() => location.reload())
         .catch((err) => console.log(err));
     },
@@ -150,7 +150,7 @@ export default {
       this.searchLoading = 1;
       axios
         .get(
-          "http://52.163.218.138/api/v1/participant/search/" +
+          "http://52.163.218.138:3000/api/v1/participant/search/" +
             this.keyword
         )
         .then((res) => {
@@ -256,7 +256,7 @@ export default {
   mounted() {
     axios
       .get(
-        "http://52.163.218.138/api/v1/participant/page/" +
+        "http://52.163.218.138:3000/api/v1/participant/page/" +
           this.$route.params.page
       )
       .then((res) => {
