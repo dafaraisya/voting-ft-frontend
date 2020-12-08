@@ -76,7 +76,16 @@ export default {
                                 this.$router.go(-1);
                             })
                         })
-                        .catch( err => console.log(err));
+                        .catch( err => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal mengirim email',
+                                text: JSON.stringify(err.response.data.data),
+                                showConfirmButton: true
+                            }).then(()=>{
+                                
+                            })
+                        });
                 } 
             })
         },
