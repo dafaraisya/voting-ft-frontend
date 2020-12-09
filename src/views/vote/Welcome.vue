@@ -140,7 +140,7 @@ b-button {
       rgba(0, 0, 0, 0.7) 0%,
       rgb(0, 0, 0, 0.7) 80%
     ),
-    url("https://drive.google.com/uc?export=download&id=1A08sfz0Ah2Vy4RgWt2L-_e2DS35Z30XD");
+    url("https://drive.google.com/uc?export=download&id=1cPJpqH2kd0JRA504Ow2-K4ZnaoOM6ey-");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -153,7 +153,7 @@ b-button {
       rgba(0, 0, 0, 0.7) 0%,
       rgb(0, 0, 0, 0.7) 80%
     ),
-    url("https://drive.google.com/uc?export=download&id=1jSLPu9SkDrG4z4Y5liTO3GpKH_mb2pmR");
+    url("https://drive.google.com/file/d/1SaroSxFEHR4iAc362RgbpYd0H8Iwlh07/view?usp=sharing");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
