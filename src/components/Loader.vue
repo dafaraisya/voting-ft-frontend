@@ -8,7 +8,7 @@
         <b-col lg="6">
           <b-container class="name">
             <h4 class="title text-white">
-              PEMIRA FMIPA <br />
+              PEMIRA FT <br />
               UNS 2020
             </h4>
             <div class="loader"></div>

@@ -13,7 +13,7 @@
               />
             </div>
             <ul>
-              <li>KPR FMIPA UNS</li>
+              <li>KPR FT UNS</li>
             </ul>
           </div>
         </div>

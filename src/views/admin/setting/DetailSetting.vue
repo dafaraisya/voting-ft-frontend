@@ -20,7 +20,7 @@
           <br />
           <h3>Prosedur</h3>
           <a
-            v-bind:href="'http://localhost/procedure.pdf'"
+            v-bind:href="'http://52.163.218.138/procedure.pdf'"
             class="btn btn-primary"
           >
             <i class="far fa-file-alt text-white"></i>

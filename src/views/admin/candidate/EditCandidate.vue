@@ -125,7 +125,7 @@ export default {
         },
         getImage(url) {
             console.log()
-            return 'http://localhost/images/'+url;
+            return 'http://52.163.218.138/images/'+url;
         }
     },
     mounted() {
