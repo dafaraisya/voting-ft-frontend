@@ -9,7 +9,7 @@
             <div class="inner">
               <span>
                 #ftmemilih<br />
-                #suaramipa<br />
+                #suaraft<br />
                 #suksespemira2020
               </span>
             </div>
