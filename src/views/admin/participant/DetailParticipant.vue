@@ -76,11 +76,11 @@ export default {
                                 this.$router.go(-1);
                             })
                         })
-                        .catch( err => {
+                        .catch( () => {
                             Swal.fire({
                                 icon: 'error',
-                                title: 'Gagal mengirim email',
-                                text: JSON.stringify(err.response.data.data),
+                                title: 'Error',
+                                text: "Gagal mengirim email",
                                 showConfirmButton: true
                             }).then(()=>{
                                 

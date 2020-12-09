@@ -70,7 +70,7 @@ export default {
           type: "bar",
         },
         title: {
-          text: "Hasil Perhitungan Suara PEMIRA FT UNS 2020",
+          text: "Hasil Perhitungan Suara Calon Ketuam BEM",
         },
         xAxis: {
           categories: ["oke", "oke2", "oke3"],
@@ -225,8 +225,12 @@ export default {
 
         for (n = 0; n < maxCount; n++) {
           if (this.participants[n].voting) {
-            const index = this.findCandidateById(
+            var index = this.findCandidateById(
               this.participants[n].voting.id_candidate_bem
+            );
+            total[index].total++;
+            index = this.findCandidateById(
+              this.participants[n].voting.id_candidate_legislatif
             );
             total[index].total++;
           }
@@ -246,7 +250,7 @@ export default {
         this.barOptions.series[0].data = vote;
         this.barOptions.yAxis.title.text =
           maxCount + "/" + this.participants.length + " suara";
-      }, 1000);
+      }, 250);
     },
   },
   mounted() {
