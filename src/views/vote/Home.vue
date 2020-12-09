@@ -64,7 +64,7 @@ html {
       rgba(0, 0, 0, 0.7) 0%,
       rgb(0, 0, 0, 0.7) 80%
     ),
-    url("https://drive.google.com/uc?export=download&id=1NjeupBEvtb36iEVvFLgyTmOiF9VXhnkP");
+    url("https://drive.google.com/uc?export=download&id=1LdkFMcB4tZMYGyTb4o22NuAROiGUUh8F");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
