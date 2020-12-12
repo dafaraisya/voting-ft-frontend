@@ -12,22 +12,18 @@
     </div>
     <!-- bar chart -->
     <div v-if="timeUp">
-      <b-row>
-        <b-col lg="1"></b-col>
-        <b-col lg="10">
-          <b-card>
-            <b-row class="h2">
-              <b-col>
-                <div class="row" v-if="arrCandidate.length > 0">
-                  <div class="col">
-                    <highcharts :options="barOptions" ref="chart"></highcharts>
-                  </div>
-                </div>
-              </b-col>
-            </b-row>
-          </b-card>
-        </b-col>
-      </b-row>
+      <b-container>
+        <b-row v-if="arrCandidateBEM.length > 0">
+          <b-col cols="12">
+            <highcharts :options="barOptions" ref="chart"></highcharts>
+          </b-col>
+        </b-row>
+        <b-row v-if="arrCandidateLegislatif.length > 0" class="mt-4">
+          <b-col cols="12">
+            <highcharts :options="barOptions2" ref="chart"></highcharts>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
     <!-- countdown -->
     <div v-else class="row mt-5">
@@ -64,13 +60,14 @@ export default {
       date: 0,
       hour: 0,
       minute: 0,
-      arrCandidate: [],
+      arrCandidateBEM: [],
+      arrCandidateLegislatif: [],
       barOptions: {
         chart: {
           type: "bar",
         },
         title: {
-          text: "Hasil Perhitungan Suara Calon Ketuam BEM",
+          text: "Hasil Perhitungan Suara Calon Ketua BEM",
         },
         xAxis: {
           categories: ["oke", "oke2", "oke3"],
@@ -127,36 +124,81 @@ export default {
           },
         ],
       },
-      positiveChartColors: {
-        backgroundColor: "#20bf0b",
-      },
-      chartOptions: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: false,
-              },
-              gridLines: {
-                display: true,
-              },
-            },
-          ],
-          xAxes: [
-            {
-              ticks: {
-                beginAtZero: false,
-              },
-              gridLines: {
-                display: false,
-              },
-            },
-          ],
+      barOptions2: {
+        chart: {
+          type: "bar",
         },
-        responsive: true,
-        maintainAspectRatio: true,
+        title: {
+          text: "Hasil Perhitungan Suara Calon Dewan Mahasiswa",
+        },
+        xAxis: {
+          categories: ["oke", "oke2", "oke3"],
+          title: {
+            text: null,
+          },
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: "46/100 suara",
+            align: "high",
+          },
+          labels: {
+            overflow: "justify",
+          },
+        },
+        tooltip: {
+          valueSuffix: " suara",
+        },
+        plotOptions: {
+          bar: {
+            dataLabels: {
+              enabled: true,
+            },
+          },
+          series: {
+            animation: {
+              duration: 0,
+            },
+          },
+        },
+        legend: {
+          layout: "vertical",
+          align: "right",
+          verticalAlign: "top",
+          x: -40,
+          y: 80,
+          floating: true,
+          borderWidth: 1,
+          backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || "#FFFFFF",
+          shadow: true,
+        },
+        credits: {
+          enabled: false,
+        },
+        series: [
+          {
+            name: "Perolehan",
+            data: [107, 31, 635, 203, 2],
+            color: "#4BB543",
+            showInLegend: false,
+          },
+        ],
       },
     };
+  },
+  computed: {
+    BEMCandidates: function() {
+      return this.candidates.filter(function(candidate) {
+        return candidate.type == "bem";
+      });
+    },
+    LegislatifCandidates: function() {
+      return this.candidates.filter(function(candidate) {
+        return candidate.type == "legislatif";
+      });
+    },
   },
   methods: {
     checkEndTime() {
@@ -174,7 +216,6 @@ export default {
       if (distance < 0) {
         this.timeUp = true;
       }
-      console.log(this.timeUp);
     },
     formatter() {
       const format = this.announcement.split("-");
@@ -188,8 +229,14 @@ export default {
     },
     findCandidateById(id) {
       var i = 0;
-      for (i = 0; i < this.candidates.length; i++) {
-        if (this.candidates[i]._id == id) return i;
+      for (i = 0; i < this.BEMCandidates.length; i++) {
+        if (this.BEMCandidates[i]._id == id) return i;
+      }
+    },
+    findCandidateByIdLegislatif(id) {
+      var i = 0;
+      for (i = 0; i < this.LegislatifCandidates.length; i++) {
+        if (this.LegislatifCandidates[i]._id == id) return i;
       }
     },
     count() {
@@ -213,9 +260,18 @@ export default {
         if (maxCount > this.participants.length)
           maxCount = this.participants.length;
 
-        var total = [];
-        this.candidates.forEach((candidate) =>
-          total.push({
+        var totalCandidateBEM = [];
+        var totalCandidateLegislatif = [];
+
+        this.BEMCandidates.forEach((candidate) =>
+          totalCandidateBEM.push({
+            name: candidate.name,
+            total: 0,
+          })
+        );
+
+        this.LegislatifCandidates.forEach((candidate) =>
+          totalCandidateLegislatif.push({
             name: candidate.name,
             total: 0,
           })
@@ -228,20 +284,30 @@ export default {
             var index = this.findCandidateById(
               this.participants[n].voting.id_candidate_bem
             );
-            total[index].total++;
-            index = this.findCandidateById(
-              this.participants[n].voting.id_candidate_legislatif
-            );
-            total[index].total++;
+            totalCandidateBEM[index].total++;
           }
         }
 
-        this.arrCandidate = total;
+        this.arrCandidateBEM = totalCandidateBEM;
+
+        n = 0;
+
+        for (n = 0; n < maxCount; n++) {
+          if (this.participants[n].voting) {
+            index = this.findCandidateByIdLegislatif(
+              this.participants[n].voting.id_candidate_legislatif
+            );
+            totalCandidateLegislatif[index].total++;
+          }
+        }
+
+        this.arrCandidateLegislatif = totalCandidateLegislatif;
+        
 
         var name = [];
         var vote = [];
 
-        total.forEach((count) => {
+        totalCandidateBEM.forEach((count) => {
           name.push(count.name);
           vote.push(count.total);
         });
@@ -249,6 +315,19 @@ export default {
         this.barOptions.xAxis.categories = name;
         this.barOptions.series[0].data = vote;
         this.barOptions.yAxis.title.text =
+          maxCount + "/" + this.participants.length + " suara";
+
+        name = [];
+        vote = [];
+
+        totalCandidateLegislatif.forEach((count) => {
+          name.push(count.name);
+          vote.push(count.total);
+        });
+
+        this.barOptions2.xAxis.categories = name;
+        this.barOptions2.series[0].data = vote;
+        this.barOptions2.yAxis.title.text =
           maxCount + "/" + this.participants.length + " suara";
       }, 250);
     },

@@ -5,7 +5,7 @@
       <h1 class="text-white tittle">PEMIRA FT UNS 2020</h1>
       <h4 class="text-white mt-1 mb-5">
         Halo {{ participant.name }}, Silakan Ketuk Pilih untuk memilih daftar
-        calon Ketua Legislatif dibawah ini
+        Calon Dewan Mahasiswa dibawah ini
       </h4>
       <b-row>
         <b-col
@@ -60,7 +60,7 @@ export default {
     return {
       participant: [],
       candidates: [],
-      id_candidate_bem : ''
+      id_candidate_bem: "",
     };
   },
   methods: {
@@ -77,10 +77,7 @@ export default {
             id_candidate_legislatif: id_candidate_legislatif,
           };
           axios
-            .put(
-              "http://52.163.218.138:3000/api/v1/participant/vote",
-              data
-            )
+            .put("http://52.163.218.138:3000/api/v1/participant/vote", data)
             .then(() => {
               Swal.fire({
                 icon: "success",
@@ -105,8 +102,7 @@ export default {
   mounted() {
     axios
       .get(
-        "http://52.163.218.138:3000/api/v1/participant/" +
-          this.$route.params.id
+        "http://52.163.218.138:3000/api/v1/participant/" + this.$route.params.id
       )
       .then((res) => (this.participant = res.data.data))
       .catch((err) => console.log(err));
@@ -117,17 +113,18 @@ export default {
       .catch((error) => console.log(error));
   },
   created() {
-      if(this.$route.query.id_candidate_bem) {
-        this.id_candidate_bem = this.$route.query.id_candidate_bem;
-      }
+    if (this.$route.query.id_candidate_bem) {
+      this.id_candidate_bem = this.$route.query.id_candidate_bem;
+    }
   },
   computed: {
+    
     LegislatifCandidates: function() {
-      return this.candidates.filter(function (candidate) {
-        return candidate.type == 'legislatif';
-      })
-    }
-  }
+      return this.candidates.filter(function(candidate) {
+        return candidate.type == "legislatif";
+      });
+    },
+  },
 };
 </script>
 <style scoped>
@@ -143,6 +140,6 @@ h1 {
       rgb(0, 0, 0, 0.7) 80%
     ),
     url("https://drive.google.com/uc?export=download&id=1COIP91BUDc2z0l_Bl2OFYQIFNnGXuS83");
-    background-size: cover;
+  background-size: cover;
 }
 </style>
