@@ -5,7 +5,7 @@
                 <div class="container bg-white mt-2 p-3 shadow-sm rounded">
                     <div id="pemira-card" class="p-3 bg-white" style="border: 2px inset #aaa">
                         <img src="@/assets/logo kpr.png" style="height:50px; width:50px;"/>
-                        <h2 class="text-bold">Kartu Pemilihan<br/>PEMIRA 2020</h2>
+                        <h2 class="text-bold">Kartu Pemilihan<br/>PEMILU 2020</h2>
                         <vue-qr v-bind:text="detail._id"></vue-qr><br/>
                         <b>Nama</b><br/> {{ detail.name }}<br/>
                         <b>NIM</b><br/> {{ detail.nim }}<br/>

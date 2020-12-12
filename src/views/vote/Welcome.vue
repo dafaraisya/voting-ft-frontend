@@ -5,7 +5,7 @@
       <b-container class="container h-100 text-white">
         <b-row class="row h-100 justify-content-center align-items-center">
           <b-col lg="12">
-            <h1>PEMIRA FT UNS 2020</h1>
+            <h1>PEMILU HIMATEKK ITS 2020</h1>
             <div class="inner">
               <span>
                 #ftmemilih<br />
@@ -58,7 +58,7 @@ export default {
     Footer,
   },
   created() {
-    document.title = "PEMIRA FT UNS 2020";
+    document.title = "PEMILU HIMATEKK ITS 2020";
   },
 };
 </script>

@@ -5,9 +5,9 @@
 </template>
 <script>
 export default {
-  title: 'PEMIRA FT UNS 2020',
+  title: 'PEMILU HIMATEKK ITS 2020',
   metaInfo: {
-    title: 'PEMIRA FT UNS 2020'
+    title: 'PEMILU HIMATEKK ITS 2020'
   }
 }
 </script>

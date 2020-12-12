@@ -59,6 +59,7 @@ export default {
                 shortDescription:this.dataCandidate.description.short,
                 visionDescription:this.dataCandidate.description.vision,
                 missionDescription:this.dataCandidate.description.mission,
+                type:this.dataCandidate.type,
             };
 
             Swal.fire({

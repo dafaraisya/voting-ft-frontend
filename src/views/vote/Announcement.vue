@@ -6,7 +6,7 @@
           style="margin-top: 50px;margin-bottom: 30px;"
           class="text-center text-white"
         >
-          Pengumuman Hasil Voting PEMIRA 2020
+          Pengumuman Hasil Voting PEMILU 2020
         </h1>
       </div>
     </div>
