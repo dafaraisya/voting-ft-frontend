@@ -61,7 +61,7 @@ export default {
         };
 
         axios
-            .post("http://52.163.218.138:3000/api/v1/participant", data)
+            .post("http://52.170.214.236:3000/api/v1/participant", data)
             .then(() => {
                         Swal.fire({
                     icon: 'success',
@@ -77,7 +77,7 @@ export default {
     },
     created() {
         axios
-        .get('http://52.163.218.138:3000/api/v1/session/all')
+        .get('http://52.170.214.236:3000/api/v1/session/all')
         .then(res => (this.sessions = res.data.data))
         .catch(error => console.log(error))
     }

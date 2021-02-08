@@ -68,7 +68,7 @@ export default {
         };
 
         axios
-            .post("http://52.163.218.138:3000/api/v1/candidate", data)
+            .post("http://52.170.214.236:3000/api/v1/candidate", data)
             .then(() => {
                 Swal.fire({
                     icon: 'success',

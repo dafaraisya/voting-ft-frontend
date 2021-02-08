@@ -5,12 +5,12 @@
       <b-container class="container h-100 text-white">
         <b-row class="row h-100 justify-content-center align-items-center">
           <b-col lg="12">
-            <h1>PEMIRA FT UNS 2020</h1>
+            <h1>PEMIRA FISIP UNS 2021</h1>
             <div class="inner">
               <span>
-                #ftmemilih<br />
-                #suaraft<br />
-                #suksespemira2020
+                #fisipmemilih<br />
+                #suarafisip<br />
+                #suksespemira2021
               </span>
             </div>
             <b-container class="mt-5">
@@ -58,7 +58,7 @@ export default {
     Footer,
   },
   created() {
-    document.title = "PEMIRA FT UNS 2020";
+    document.title = "PEMIRA FISIP UNS 2021";
   },
 };
 </script>
@@ -140,7 +140,7 @@ b-button {
       rgba(0, 0, 0, 0.7) 0%,
       rgb(0, 0, 0, 0.7) 80%
     ),
-    url("https://drive.google.com/uc?export=download&id=1Y50lIX36x5bvMvu-PkNeviM7FdgfsNgJ");
+    url("https://drive.google.com/$typettps://drive.google.com/uc?export=download&id=1Ftc9Ov2QXhZJWllzfkk4okK8hxWgG_9");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -153,7 +153,7 @@ b-button {
       rgba(0, 0, 0, 0.7) 0%,
       rgb(0, 0, 0, 0.7) 80%
     ),
-    url("https://drive.google.com/uc?export=download&id=1nz3ljww7_FHWtJOy4cG8-miyMnSWjRFF");
+    url("https://drive.google.com/uc?export=download&id=11YhmEa4Q-Sm-rAFXCjkvFILPj1pTUSKv");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

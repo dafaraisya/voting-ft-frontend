@@ -6,7 +6,7 @@
           style="margin-top: 50px;margin-bottom: 30px;"
           class="text-center text-white"
         >
-          Pengumuman Hasil Voting PEMILU 2020
+          Pengumuman Hasil Voting PEMILU 2021
         </h1>
       </div>
     </div>
@@ -334,7 +334,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://52.163.218.138:3000/api/v1/announcement")
+      .get("http://52.170.214.236:3000/api/v1/announcement")
       .then((res) => {
         this.announcement = res.data.data;
         this.formatter();
@@ -342,14 +342,14 @@ export default {
       })
       .catch((err) => console.log(err));
     axios
-      .get("http://52.163.218.138:3000/api/v1/participant/all")
+      .get("http://52.170.214.236:3000/api/v1/participant/all")
       .then((res) => {
         this.participants = res.data.data;
         this.count();
       })
       .catch((err) => console.log(err));
     axios
-      .get("http://52.163.218.138:3000/api/v1/candidate/all")
+      .get("http://52.170.214.236:3000/api/v1/candidate/all")
       .then((res) => {
         this.candidates = res.data.data;
       })

@@ -12,7 +12,7 @@
                     <div v-html="detail.description.vision"/>
                     <b>Misi</b>
                     <div v-html="detail.description.mission"/><br/>
-                    <a v-bind:href="'http://52.163.218.138/'+this.$route.params.id+'.pdf'">
+                    <a v-bind:href="'http://52.170.214.236/'+this.$route.params.id+'.pdf'">
                         <b-button class="ml-2" href="" variant="primary">
                             <i class="far fa-file-alt text-white"></i>
                             CV
@@ -60,7 +60,7 @@ export default {
             }).then((result) => {
                 if (result.isConfirmed) {            
                     axios
-                        .delete("http://52.163.218.138:3000/api/v1/candidate/"+this.$route.params.id)
+                        .delete("http://52.170.214.236:3000/api/v1/candidate/"+this.$route.params.id)
                         .then(() => {
                             Swal.fire({
                                 icon: 'success',
@@ -81,7 +81,7 @@ export default {
     },
     created() {
         axios
-            .get("http://52.163.218.138:3000/api/v1/candidate/"+this.$route.params.id)
+            .get("http://52.170.214.236:3000/api/v1/candidate/"+this.$route.params.id)
             .then(res => (this.detail = res.data.data))
             .catch(err => console.log(err));
     }

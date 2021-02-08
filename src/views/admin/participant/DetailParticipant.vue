@@ -4,8 +4,8 @@
             <b-col lg="6">
                 <div class="container bg-white mt-2 p-3 shadow-sm rounded">
                     <div id="pemira-card" class="p-3 bg-white" style="border: 2px inset #aaa">
-                        <img src="@/assets/logo kpr.png" style="height:50px; width:50px;"/>
-                        <h2 class="text-bold">Kartu Pemilihan<br/>PEMILU 2020</h2>
+                        <img src="@/assets/kpu fisip.png" style="height:50px; width:50px;"/>
+                        <h2 class="text-bold">Kartu Pemilihan<br/>PEMILU 2021</h2>
                         <vue-qr v-bind:text="detail._id"></vue-qr><br/>
                         <b>Nama</b><br/> {{ detail.name }}<br/>
                         <b>NIM</b><br/> {{ detail.nim }}<br/>
@@ -16,7 +16,7 @@
                         <i class="fas fa-paper-plane"></i>
                         Kirim
                     </b-button>
-                    <b-button @click="download('Kartu Pemilihan Pemira 2020_'+detail.name+'_'+detail.nim)" class="ml-2" href="" variant="primary">
+                    <b-button @click="download('Kartu Pemilihan Pemira 2021_'+detail.name+'_'+detail.nim)" class="ml-2" href="" variant="primary">
                         <i class="fas fa-file-download"></i>
                         Unduh
                     </b-button>
@@ -66,7 +66,7 @@ export default {
             }).then((result) => {
                 if (result.isConfirmed) {            
                     axios
-                        .delete("http://52.163.218.138:3000/api/v1/participant/"+this.$route.params.id)
+                        .delete("http://52.170.214.236:3000/api/v1/participant/"+this.$route.params.id)
                         .then(() => {
                             Swal.fire({
                                 icon: 'success',
@@ -109,7 +109,7 @@ export default {
                 }
                 
                 axios
-                    .post("http://52.163.218.138:3000/api/v1/mail/", data)
+                    .post("http://52.170.214.236:3000/api/v1/mail/", data)
                     .then(() => {
                         Swal.fire({
                             icon: 'success',
@@ -134,7 +134,7 @@ export default {
     },
     mounted() {
         axios
-            .get("http://52.163.218.138:3000/api/v1/participant/"+this.$route.params.id)
+            .get("http://52.170.214.236:3000/api/v1/participant/"+this.$route.params.id)
             .then(res => (this.detail = res.data.data))
             .catch(err => console.log(err));
     }

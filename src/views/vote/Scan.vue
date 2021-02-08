@@ -56,7 +56,7 @@ export default {
     onDecode (decodedString) {
       this.id = decodedString;
       axios
-        .get("http://52.163.218.138:3000/api/v1/participant/"+this.id)
+        .get("http://52.170.214.236:3000/api/v1/participant/"+this.id)
         .then(res => {
           this.dataParticipant = res.data.data;
           this.check();
@@ -97,7 +97,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://52.163.218.138:3000/api/v1/participant/all")
+      .get("http://52.170.214.236:3000/api/v1/participant/all")
       .then(res => (this.dataParticipants = res.data.data))
       .catch(error => console.log(error))
   }

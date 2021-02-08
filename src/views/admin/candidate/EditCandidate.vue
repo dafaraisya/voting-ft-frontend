@@ -70,7 +70,7 @@ export default {
                 }).then((result) => {
                     if (result.isConfirmed) {            
                         axios
-                            .put("http://52.163.218.138:3000/api/v1/candidate/"+this.$route.params.id, formData)
+                            .put("http://52.170.214.236:3000/api/v1/candidate/"+this.$route.params.id, formData)
                             .then(() => {
                                 Swal.fire({
                                     icon: 'success',
@@ -104,7 +104,7 @@ export default {
                 }).then((result) => {
                     if (result.isConfirmed) {            
                         axios
-                            .put("http://52.163.218.138:3000/api/v1/candidate/"+this.$route.params.id+"/upload", formData,
+                            .put("http://52.170.214.236:3000/api/v1/candidate/"+this.$route.params.id+"/upload", formData,
                             {
                                 headers: {
                                     'Content-Type': 'multipart/form-data'
@@ -126,12 +126,12 @@ export default {
         },
         getImage(url) {
             console.log()
-            return 'http://52.163.218.138/images/'+url;
+            return 'http://52.170.214.236/images/'+url;
         }
     },
     mounted() {
         axios
-        .get('http://52.163.218.138:3000/api/v1/candidate/'+this.$route.params.id)
+        .get('http://52.170.214.236:3000/api/v1/candidate/'+this.$route.params.id)
         .then(res => (this.dataCandidate = res.data.data))
         .catch(error => console.log(error))
     }

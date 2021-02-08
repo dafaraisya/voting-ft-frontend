@@ -2,7 +2,7 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>PEMIRA FT UNS 2020 </h3>
+                <h3>PEMIRA FISIP UNS 2021</h3>
             </div>
 
             <ul class="list-unstyled components text-white">

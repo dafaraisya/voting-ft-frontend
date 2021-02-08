@@ -3,7 +3,7 @@
         <b-row>
             <b-col class="mb-3" lg="12">
                 <div class="container bg-success p-4 text-left rounded-lg shadow">
-                    <h3 class="text-white"> Selamat datang di Dashboard PEMIRA FT UNS 2020! </h3>
+                    <h3 class="text-white"> Selamat datang di Dashboard PEMIRA FISIP UNS 2021! </h3>
                 </div>
             </b-col>
             <b-col lg="3">
@@ -58,7 +58,7 @@ export default {
     methods:{
         getOutline() {
             axios
-                .get("http://52.163.218.138:3000/api/v1/outline")
+                .get("http://52.170.214.236:3000/api/v1/outline")
                 .then(res => (this.outline = res.data.data))
                 .catch(err => console.log(err));
         }
